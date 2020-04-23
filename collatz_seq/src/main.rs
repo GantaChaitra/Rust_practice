@@ -12,10 +12,9 @@ fn collatz_next(n : usize) -> usize {
     };
 }
 fn collatz_seq(n : usize) -> Vec<usize> {
-    if n == 4 {
-        vec! [4,2,1]
-    } else {
-        [vec! [n],collatz_seq(collatz_next(n))].concat()
+    match n {
+        4 => vec![4,2,1],
+        _ => [vec! [n],collatz_seq(collatz_next(n))].concat(),
     }
 }
 
